@@ -26,7 +26,7 @@ def test_first_three(client):
 def test_add_implementation(client):
     response = client.post('/member', json={
 		"first_name": "Tommy",
-        "id": 3443,
+    "id": 3443,
 		"age": 23,
 		"lucky_numbers": [34,65,23,4,6]
 	})
@@ -37,7 +37,7 @@ def test_add_empty_reponse_body(client):
     response = client.post('/member', json={
 		"first_name": "Sandra",
 		"age": 12,
-        "id": 4446,
+    "id": 4446,
 		"lucky_numbers": [12,34,33,45,32,12]
 	})
     assert response.data != b""
@@ -75,7 +75,7 @@ def test_get_single_member_returns_dict(client):
 def test_get_single_member_has_keys(client):
     response = client.get('/member/3443')
     data = json.loads(response.data)
-
+    
     assert data is not None
     assert "first_name" in data
     assert "id" in data
@@ -99,7 +99,7 @@ def test_delete_member(client):
 def test_delete_response(client):
     client.post('/member', json={
 		"first_name": "Tommy",
-        "id": 3443,
+    "id": 3443,
 		"age": 23,
 		"lucky_numbers": [34,65,23,4,6]
 	})
